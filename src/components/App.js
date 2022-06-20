@@ -1,8 +1,11 @@
+import "../styles/App.css";
+import Layout from "./Layout";
+import Home from "../pages/Home";
 function App() {
   return (
-    <div>
-      <h1> React Project </h1>
-    </div>
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
 
