@@ -1,8 +1,6 @@
+import Video from "../components/Video";
+
 function Home() {
-  return (
-    <div>
-      <h1>home</h1>
-    </div>
-  );
+  return <Video />;
 }
 export default Home;

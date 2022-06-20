@@ -1,12 +1,12 @@
 import Nav from "./Nav";
 import classes from "../styles/Layout.module.css";
 
-function Layout({ Children }) {
+function Layout({ children }) {
   return (
     <>
       <Nav />
       <main className={classes.main}>
-        <div className={classes.container}>{Children}</div>
+        <div className={classes.container}>{children}</div>
       </main>
     </>
   );
