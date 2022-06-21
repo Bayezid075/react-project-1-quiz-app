@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import "../styles/App.css";
 import Layout from "./Layout";
 import Home from "../pages/Home";
@@ -8,10 +9,14 @@ import Result from "../pages/Result";
 function App() {
   return (
     <Layout>
-      {/* <Videos /> */}
-      {/* <Signup /> */}
-      <Quiz />
-      {/* <Result /> */}
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Videos />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/quiz" element={<Quiz />} />
+          <Route exact path="/result" element={<Result />} />
+        </Routes>{" "}
+      </Router>
     </Layout>
   );
 }
