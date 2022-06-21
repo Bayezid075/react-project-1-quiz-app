@@ -10,8 +10,8 @@ function App() {
     <Layout>
       {/* <Videos /> */}
       {/* <Signup /> */}
-      {/* <Quiz /> */}
-      <Result />
+      <Quiz />
+      {/* <Result /> */}
     </Layout>
   );
 }
