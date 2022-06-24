@@ -8,16 +8,16 @@ import Quiz from "./Quiz";
 import Result from "../pages/Result";
 function App() {
   return (
-    <Router>
-      <Layout>
+    <Layout>
+      <Router>
         <Routes>
           <Route exact path="/" element={<Videos />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/quiz" element={<Quiz />} />
           <Route exact path="/result" element={<Result />} />
         </Routes>{" "}
-      </Layout>
-    </Router>
+      </Router>
+    </Layout>
   );
 }
 
