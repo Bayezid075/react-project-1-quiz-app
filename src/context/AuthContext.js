@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
     await createUserWithEmailAndPassword(auth, email, password);
     //update profile
     await updateProfile(auth.currentUser, {
-      displayName: name,
+      displayName: userName,
     });
     const user = auth.currentUser;
     setUser({
