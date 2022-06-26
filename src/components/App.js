@@ -9,15 +9,38 @@ import Result from "../pages/Result";
 import Login from "./Login";
 import { AuthProvider } from "../context/AuthContext";
 import SignupForm from "../pages/SignupForm";
+import PrivetRoute from "./PrivetRoute";
+import PublicRoute from "./PublicRoute";
 function App() {
   return (
     <AuthProvider>
       <Layout>
         <Routes>
           <Route path="/" element={<Videos />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/result" element={<Result />} />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <Signup />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/quiz"
+            element={
+              <PrivetRoute>
+                <Quiz />
+              </PrivetRoute>
+            }
+          />
+          <Route
+            path="/result"
+            element={
+              <PrivetRoute>
+                <Result />
+              </PrivetRoute>
+            }
+          />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Layout>
