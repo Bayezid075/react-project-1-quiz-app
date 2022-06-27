@@ -1,19 +1,31 @@
 import useVideo from "../hook/useVideo";
-import classes from "../styles/Videos.module.css";
+
 import Video from "./Video";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function Videos() {
-  const { video, loading, error } = useVideo();
+  const { video, loading, error, hasMore } = useVideo(0);
+  const [page, setPage] = useState(1);
   console.log(video);
   return (
-    <div className={classes.videos}>
-      {video.length > 0 &&
-        video.map((video) => (
-          <Link to="/quiz" key={video.youtubeID}>
-            <Video title={video.title} id={video.youtubeID} noq={video.noq} />
-          </Link>
-        ))}
+    <div>
+      {video.length > 0 && (
+        <InfiniteScroll
+          dataLength={video.length}
+          hasMore={hasMore}
+          next={() => setPage + 8}
+        >
+          {video.map((video) => (
+            <Link to="/quiz" key={video.youtubeID}>
+              <Video title={video.title} id={video.youtubeID} noq={video.noq} />
+            </Link>
+          ))}
+          }
+        </InfiniteScroll>
+      )}
+
       {!loading && video.length === 0 && (
         <div className="b"> No Data Found</div>
       )}
